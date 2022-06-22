@@ -4,23 +4,23 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Mailjet\LaravelMailjet\Facades\Mailjet;
+
 
 class MainController extends Controller
 {
     public function index()
     {
-        $data = [
-            'title' => 'Home',
-            'content' => 'Halaman Home'
-        ];
-        $qrcode = QrCode::generate('hello');
-        return view('main.index', compact('qrcode'));
+        $path = ('assets/'.time());
+        $qrcode = QrCode::format('png')->generate($url ?? 'www.google.com', $path);
+        return view('main.index', compact('path'));
     }
 
     public function GenerateQr($url = null)
     {
-        $qrcode = QrCode::generate($url ?? 'www.google.com');
-        return $qrcode;
+        $path = ('assets/'.time());
+        QrCode::generate($url ?? 'www.google.com', $path);
+        return $path;
     }
 
     public function SendNota()
@@ -35,7 +35,6 @@ class MainController extends Controller
         return response()->json($data, 200);
     }
 
-    public function test(){
-        echo 'berhasil';
-    }
+
+
 }

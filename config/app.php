@@ -135,6 +135,8 @@ return [
     */
 
     'providers' => [
+        // MailJet
+        Mailjet\LaravelMailjet\MailjetServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -189,6 +191,10 @@ return [
     */
 
     'aliases' => [
+
+        // MailJet
+        'Mailjet' => Mailjet\LaravelMailjet\Facades\Mailjet::class,
+
 
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,

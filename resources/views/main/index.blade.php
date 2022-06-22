@@ -7,6 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    {{ $qrcode }}
+    {{-- <img src="{{ url($path) }}"> --}}
 </body>
 </html>
