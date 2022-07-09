@@ -31,6 +31,12 @@ class Nota extends Mailable
      */
     public function build()
     {
-        return $this->subject('Masuk Pak Eko')->view('email.nota');
+        $images = public_path('/'.$this->details['qrcode']);
+        return $this->subject('Update Pembuatan Legalitas')
+        ->view('email.nota')
+        ->with([
+            'details', $this->details,
+            'images' => $images
+        ]);
     }
 }

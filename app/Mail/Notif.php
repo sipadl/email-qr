@@ -16,9 +16,12 @@ class Notif extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $details;
+
+
+    public function __construct($details)
     {
-        //
+        $this->details = $details;
     }
 
     /**
@@ -28,6 +31,10 @@ class Notif extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->subject('Update Pembuatan Legalitas')
+        ->view('email.notif')
+        ->with([
+            'details', $this->details
+        ])->attachData(public_path('/'.$this->details['akta']), 'akta_perusahaan.pdf');
     }
 }

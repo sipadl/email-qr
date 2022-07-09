@@ -16,7 +16,7 @@ class CreateQrStaticsTable extends Migration
         Schema::create('qr_statics', function (Blueprint $table) {
             $table->id();
             $table->string('qr_path');
-            $table->string('id_perusahaan');
+            $table->string('kode_perusahaan');
             $table->timestamps();
         });
     }
