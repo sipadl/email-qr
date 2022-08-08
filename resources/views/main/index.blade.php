@@ -39,7 +39,7 @@
                     <a href="{{ route('main') }}" class="list-group-item list-group-item-action"><i class='bx bx-home-alt' ></i> Dashboard</a>
                     <a href="{{ route('dokumen') }}" class="list-group-item list-group-item-action"><i class='bx bxs-file-doc' ></i> Dokumen</a>
                     <a href="{{ route('laporan') }} " class="list-group-item list-group-item-action"><i class='bx bxs-report' ></i> Laporan</a>
-                    <a href="a" class="list-group-item list-group-item-action"><i class='bx bx-log-out'></i> Keluar</a>
+                    <a href="{{ route('logout') }}" class="list-group-item list-group-item-action"><i class='bx bx-log-out'></i> Keluar</a>
                 </div>
             </div>
             <div class="col-md-9 col-sm-12">

@@ -141,4 +141,21 @@ class MainController extends Controller
         return response()->json($data, 200);
     }
 
+    public function login(Request $request)
+    {
+        $data = $request->except('_token');
+
+        if(Auth::attempt(['email' => $data['email'], 'password' => $data['password']])){
+            return redirect()->route('main');
+        }else{
+            return redirect()->back()->with('error', 'Email atau Password Salah');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('halaman.login');
+    }
+
 }

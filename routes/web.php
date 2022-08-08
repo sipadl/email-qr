@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Exports\UsersExport;
 use Maatwebsite\Excel\Facades\Excel;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,11 +15,13 @@ use Maatwebsite\Excel\Facades\Excel;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('auth.login');
+})->name('halaman.login');
 
 // Auth::routes();
 
+Route::post("login",[App\Http\Controllers\MainController::class, 'login'])->name('login');
+Route::get('logout', [App\Http\Controllers\MainController::class, 'logout'])->name('logout');
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/main', [App\Http\Controllers\MainController::class, 'index'])->name('main');
 Route::get('/dokumen', [App\Http\Controllers\MainController::class, 'document'])->name('dokumen');
