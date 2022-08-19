@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Mailjet\LaravelMailjet\Facades\Mailjet;
 use Maatwebsite\Excel\Facades\Excel;
+use Dompdf\Dompdf;
+use Hash;
 
 use Model\Transanski;
 use Model\User;
@@ -59,7 +61,7 @@ class MainController extends Controller
             'body' => 'Silahkan scan QR Code dibawah untuk mengetahui status dari proses akta legalitas perusahaan anda.',
             'qrcode' => $qrcode
         ];
-        $data = \Mail::to("fadel.mm01@gmail.com")->send(new \App\Mail\Nota($details));
+        $data = \Mail::to($data->email)->send(new \App\Mail\Nota($details));
         return response()->json($data, 200);
     }
 
@@ -117,27 +119,28 @@ class MainController extends Controller
         $file = $request->file('akta_perusahaan');
         $fileName = time().'.'.$file->getClientOriginalName();
         $file->move(public_path('assets/pdf/'), $fileName);
-        dd($this->emailSukses($request->id));
 
-        $data['akta_perusahaan'] = 'assets/'.$fileName;
+        $data['akta_perusahaan'] = 'assets/pdf/'.$fileName;
         $data['updated_at'] = date('Y-m-d H:i:s');
         $data['status'] = 3;
         $perusahaan = DB::table('perusahaans')->where('id', $request->id)->update($data);
 
         if($perusahaan){
+            $this->EmailSukses($request->id, $fileName);
             return redirect()->back()->with('success', 'Berhasil Mengupload Akta');
         }
     }
 
-    public function EmailSukses($id, $email = null)
+    public function EmailSukses($id, $filename, $email = null)
     {
         $data = DB::table('perusahaans')->where('id', $id)->first();
         $details = [
             'pemilik' => $data->pemilik,
             'body' => 'Berikut adalah salinan dokumen dari akta legalitas perusahaan yang anda miliki. sudah dapat diambil dengan menyertakan KTP dan Nota',
-            'akta' => $data->akta_perusahaan
+            'akta' => $data->akta_perusahaan,
+            'filename' => $filename
         ];
-        $data = \Mail::to("fadel.mm01@gmail.com")->send(new \App\Mail\Notif($details));
+        $data = \Mail::to($data->email)->send(new \App\Mail\Notif($details));
         return response()->json($data, 200);
     }
 
@@ -158,4 +161,20 @@ class MainController extends Controller
         return redirect()->route('halaman.login');
     }
 
+    public function setting()
+    {
+        $data = \App\Models\User::find(Auth::user()->id);
+        return view('dashboard.setting', compact('data'));
+    }
+
+    public function ubahSetting($id, Request $request)
+    {
+        $data = $request->except('_token');
+        $data['password'] = Hash::make($data['password']);
+        $data['updated_at'] = date('Y-m-d H:i:s');
+        $data['status'] = 1;
+        $user = \App\Models\User::find($id);
+        $user->update($data);
+        return redirect()->back()->with('success', 'Berhasil Mengubah Data');
+    }
 }

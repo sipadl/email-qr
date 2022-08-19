@@ -23,10 +23,10 @@
                     <div class="d-flex justify-content-end">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Home</a>
+                                <a class="nav-link" href="{{ url('/') }}">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Pengaturan</a>
+                                <a class="nav-link" href="{{ route('setting') }}">Pengaturan</a>
                             </li>
                         </ul>
                     </div>

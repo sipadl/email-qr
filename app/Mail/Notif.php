@@ -35,6 +35,6 @@ class Notif extends Mailable
         ->view('email.notif')
         ->with([
             'details', $this->details
-        ])->attachData(public_path('/'.$this->details['akta']), 'akta_perusahaan.pdf');
+        ])->attachData(public_path('/'.$this->details['akta']), $this->details['filename']);
     }
 }

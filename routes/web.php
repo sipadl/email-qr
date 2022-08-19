@@ -38,3 +38,8 @@ Route::get('dokumen/{id}', [App\Http\Controllers\MainController::class, 'getDoku
 Route::post('/create-dokumen', [App\Http\Controllers\MainController::class, 'createDokument'])->name('create.dokumen');
 Route::post('/cetak-laporan', [App\Http\Controllers\MainController::class, 'reports'])->name('cetak.laporan');
 Route::post('upload-akta', [App\Http\Controllers\MainController::class, 'uploadAkta'])->name('upload.akta');
+
+Route::get('generate/pdf', [App\Http\Controllers\MainController::class, 'generatePdf'])->name('generate.pdf');
+
+Route::get('setting', [App\Http\Controllers\MainController::class, 'setting'])->name('setting');
+Route::post('setting/{id}', [App\Http\Controllers\MainController::class, 'ubahSetting'])->name('setting.post');
