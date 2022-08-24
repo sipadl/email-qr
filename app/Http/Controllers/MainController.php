@@ -61,7 +61,7 @@ class MainController extends Controller
             'body' => 'Silahkan scan QR Code dibawah untuk mengetahui status dari proses akta legalitas perusahaan anda.',
             'qrcode' => $qrcode
         ];
-        $data = \Mail::to($data->email)->send(new \App\Mail\Nota($details));
+        $data = \Mail::to($email)->send(new \App\Mail\Nota($details));
         return response()->json($data, 200);
     }
 
@@ -80,7 +80,7 @@ class MainController extends Controller
 
         $perusahaan = DB::table('perusahaans')->insertGetId($data);
         if($perusahaan){
-            $nota = $this->SendNota($perusahaan);
+            $nota = $this->SendNota($perusahaan, $request['email']);
             return redirect()->back()->with('success', 'Berhasil Menambahkan Dokumen');
         }
     }
