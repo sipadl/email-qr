@@ -12,37 +12,37 @@
             <div class="form-group row mb-2">
                 <label for="" class="col-form-label col-md-5 mt-1">Pemilik</label>
                 <div class="col-md-7">
-                    <input type="text" name="pemilik" class="form-control">
+                    <input type="text" required name="pemilik" class="form-control">
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <label for="" class="col-form-label col-md-5 mt-1">KTP</label>
                 <div class="col-md-7">
-                    <input type="text" name="ktp" class="form-control">
+                    <input type="text" required name="ktp" class="form-control">
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <label for="" class="col-form-label col-md-5 mt-1">Nama Perusahaan</label>
                 <div class="col-md-7">
-                    <input type="text" name="nama_perusahaan" class="form-control">
+                    <input type="text" required name="nama_perusahaan" class="form-control">
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <label for="" class="col-form-label col-md-5 mt-1">Email</label>
                 <div class="col-md-7">
-                    <input type="text" name="email" class="form-control">
+                    <input type="email" required name="email" class="form-control" >
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <label for="" class="col-form-label col-md-5 mt-1">Handphone</label>
                 <div class="col-md-7">
-                    <input type="text" name="no_telp" class="form-control">
+                    <input type="text" required name="no_telp" class="form-control">
                 </div>
             </div>
             <div class="form-group row mb-2">
                 <label for="" class="col-form-label col-md-5 mt-1">Alamat Perusahaan</label>
                 <div class="col-md-7">
-                    <textarea type="text" name="alamat_perusahaan" class="form-control"></textarea>
+                    <textarea type="text" required name="alamat_perusahaan" class="form-control"></textarea>
                 </div>
             </div>
         </div>

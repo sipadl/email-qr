@@ -22,6 +22,7 @@
         </div>
     </div>
     <div class="col-md-12 col-sm-12 mt-4">
+        <div class="table-responsive">
         <table class="table" id="myTable">
             <thead>
                 <tr>
@@ -51,13 +52,16 @@
                 @endforeach
             </tbody>
         </table>
+        </div>
     </div>
 </div>
 
 @section('js')
 <script>
     $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#myTable').DataTable({
+        responsive: true
+    });
 } );
 </script>
 @endsection

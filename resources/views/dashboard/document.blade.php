@@ -8,6 +8,7 @@
         </button>
     </div>
     <div class="col-md-12 col-sm-12 mt-4">
+        <div class="table-responsive">
         <table class="table table-responsive" id="myTable">
             <thead>
                 <tr>
@@ -41,6 +42,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 </div>
 @endsection
