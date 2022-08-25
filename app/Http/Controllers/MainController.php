@@ -117,7 +117,7 @@ class MainController extends Controller
     public function uploadAkta(Request $request)
     {
         $file = $request->file('akta_perusahaan');
-        $fileName = time().'.'.$file->getClientOriginalName();
+        $fileName = time().'.'.preg_replace('/\s+/', '',$file->getClientOriginalName());
         $file->move(public_path('assets/pdf/'), $fileName);
 
         $data['akta_perusahaan'] = 'assets/pdf/'.$fileName;

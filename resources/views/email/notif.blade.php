@@ -11,7 +11,13 @@
     <div>
         <h4>Hai {{ $details['pemilik'] }}</h4>
         <p>{{ $details['body'] }}</p>
-        <p>{{ url($details['akta']) }}</p>
+        <a style="color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        padding:10px;
+        border-radius:8px;
+        text-decoration:none;
+        margin:auto;" class="btn btn-primary" href="{{ url($details['akta'])}}">Download File Disini</a>
         <p>Terima Kasih Sudah Menggunakan Jasa Kami</p>
     </div>
 </body>
