@@ -29,6 +29,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <p> Gunakan Username dan Password : admin@gmail.com | admin123</p>
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
