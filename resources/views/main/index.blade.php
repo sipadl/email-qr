@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tanda Terima Online</title>
+    <title>NAMA PERUSAHAAN</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
@@ -12,7 +12,7 @@
   <body>
     <div class="container">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark rounded shadow p-3 justify-content-between">
-            <a class="navbar-brand mx-3" href="#">Tanda Terima Online</a>
+            <a class="navbar-brand mx-3" href="#">NAMA PERUSAHAAN</a>
             <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
