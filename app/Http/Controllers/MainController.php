@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Mailjet\LaravelMailjet\Facades\Mailjet;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\PerusahaanExport;
 use Dompdf\Dompdf;
 use Hash;
 
@@ -87,7 +88,8 @@ class MainController extends Controller
 
     public function laporan()
     {
-        return view('dashboard.laporan');
+        $data = DB::table('perusahaans')->get();
+        return view('dashboard.laporan', compact('data'));
     }
 
     public function reports()
